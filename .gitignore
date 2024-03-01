@@ -1,3 +1,4 @@
 project/data/
 project/.env
 .venv/
+wandb/

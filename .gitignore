@@ -1,4 +1,4 @@
-project/data/
-project/.env
+src/data/
+src/.env
 .venv/
 wandb/

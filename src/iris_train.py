@@ -33,7 +33,7 @@ for num_cluster in range(2,max_clusters):
 
     # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
-    kmeans = KMeans(n_clusters=num_cluster, n_init="auto").fit(X)
+    kmeans = KMeans(max_iter=200, n_clusters=num_cluster, n_init="auto", random_state=42).fit(X)
 
     labels = kmeans.predict(X)
     sumy = 0

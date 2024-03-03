@@ -36,4 +36,4 @@ COPY requirements/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 RUN python -c "import mujoco_py"
 
-COPY . /workspace/offline_rl/
+COPY . /workspace/ml_3th_sem/

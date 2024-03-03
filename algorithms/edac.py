@@ -11,7 +11,8 @@ from torch.nn import functional as F
 import random
 
 import wandb
-import gymnasium as gym
+# import gymnasium as gym
+import gym
 
 from src.base_modules import Actor, EnsembledCritic
 from src.utils import set_seed, wandb_init, wrap_env, modify_reward, eval_actor
@@ -77,11 +78,11 @@ class EDAC:
 
         self.actor = actor.to(self.device)
         self.actor_target = deepcopy(actor).to(self.device)
-        self.actor_optim = torch.optim.AdamW(self.actor.parameters(), lr=cfg.actor_lr)
+        self.actor_optim = torch.optim.AdamW(self.actor.parameters(), lr=cfg.actor_learning_rate)
 
         self.critic = critic.to(self.device)
         self.critic_target = deepcopy(critic).to(self.device)
-        self.critic_optim = torch.optim.AdamW(self.critic.parameters(), lr=cfg.critic_lr)
+        self.critic_optim = torch.optim.AdamW(self.critic.parameters(), lr=cfg.critic_learning_rate)
 
         self.total_iterations = 0
     
@@ -255,7 +256,7 @@ def train(config: TrainConfig):
         cfg=config,
         actor=actor,
         critic=critic,
-        alpha_learning_rate=config.alpha_learning_rate,
+        alpha_lr=config.alpha_learning_rate,
     )
     # saving config to the checkpoint
     if config.checkpoints_path is not None:
@@ -269,7 +270,8 @@ def train(config: TrainConfig):
         # training
         for _ in trange(config.num_updates_on_epoch, desc="Epoch", leave=False):
             batch = buffer.sample(config.batch_size)
-            update_info = trainer.update(batch)
+            states, actions, rewards, next_states, dones = batch
+            update_info = trainer.train(states, actions, rewards, next_states, dones)
 
             if total_updates % config.log_every == 0:
                 wandb.log({"epoch": epoch, **update_info})

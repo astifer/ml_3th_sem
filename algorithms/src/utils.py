@@ -1,5 +1,6 @@
 from typing import Dict, Optional, Union
-import gymnasium as gym
+# import gymnasium as gym
+import gym
 import numpy as np
 import os
 import torch

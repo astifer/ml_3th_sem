@@ -1,6 +1,5 @@
-## Somathing with something
+## Something with something
 
+Offline RL implementation 
 
-bla lbla bla
-
-Test repo with dockerfile
+by "red square" team

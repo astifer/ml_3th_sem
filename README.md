@@ -1,4 +1,4 @@
-# Offline RL methods implementation with docker and wandb support
+# Offline RL methods implementation with Docker and Wandb support
 
 
 ## Getting started
@@ -12,12 +12,13 @@ docker run --gpus=all -it --rm --name <container_name> <image_name>
 ```
 
 ## Implementations
-| Algorithm                                                                                                                      | Variants Implemented                           |
-|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| ✅ [Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble <br>(EDAC)](https://arxiv.org/abs/2110.01548) | [`offline/edac.py`](algorithms/edac.py)        |
-| ✅ [Offline Reinforcement Learning with Implicit Q-Learning <br>(IQL)](https://arxiv.org/abs/2110.06169)                       | [`offline/iql.py`](algorithms/iql.py)          |
-| ✅ [Accelerating Online Reinforcement Learning with Offline Datasets <br>(AWAC)](https://arxiv.org/abs/2006.09359)             | [`offline/awac.py`](algorithms/awac.py)        |
-| ✅ [A Minimalist Approach to Offline Reinforcement Learning <br>(TD3+BC)](https://arxiv.org/abs/2106.06860)                    | [`offline/td3_bc.py`](algorithms/td3_bc.py)    |
+| Algorithm                                                                                                                       | Variants Implemented                                  |
+|---------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| ✅ [Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble <br>(EDAC)](https://arxiv.org/abs/2110.01548)  | [`offline/edac.py`](algorithms/edac.py)               |
+| ✅ [Offline Reinforcement Learning with Implicit Q-Learning <br>(IQL)](https://arxiv.org/abs/2110.06169)                        | [`offline/iql.py`](algorithms/iql.py)                 |
+| ✅ [Accelerating Online Reinforcement Learning with Offline Datasets <br>(AWAC)](https://arxiv.org/abs/2006.09359)              | [`offline/awac.py`](algorithms/awac.py)               |
+| ✅ [A Minimalist Approach to Offline Reinforcement Learning <br>(TD3+BC)](https://arxiv.org/abs/2106.06860)                     | [`offline/td3_bc.py`](algorithms/td3_bc.py)           |
+| ✅ [Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble <br>(SAC-N)](https://arxiv.org/abs/2110.01548) | [`offline/sac_n.py`](algorithms/edac.py) `with eta=0` |
 
 
 ## Reproducing results

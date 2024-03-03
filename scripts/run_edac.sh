@@ -10,7 +10,7 @@ python3 edac.py \
   --batch_size=256 \
   --buffer_size=2000000 \
   --critic_learning_rate=0.0003 \
-  --device=cuda \
+  --device="cuda" \
   --env_name="halfcheetah-medium-expert-v2" \
   --eta=5.0 \
   --eval_episodes=10 \

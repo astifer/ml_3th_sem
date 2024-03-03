@@ -1,9 +1,10 @@
-from typing import Dict, Optional, Union
+from typing import Dict, Optional, Union, Tuple
 # import gymnasium as gym
 import gym
 import numpy as np
 import os
 import torch
+from torch import nn
 import random
 
 try:
@@ -97,3 +98,18 @@ def modify_reward(dataset, env_name, max_episode_steps=1000):
         dataset["rewards"] *= max_episode_steps
     elif "antmaze" in env_name:
         dataset["rewards"] -= 1.0
+
+
+def soft_update(target: nn.Module, source: nn.Module, tau: float):
+    for target_param, source_param in zip(target.parameters(), source.parameters()):
+        target_param.data.copy_((1 - tau) * target_param.data + tau * source_param.data)
+
+
+def compute_mean_std(states: np.ndarray, eps: float) -> Tuple[np.ndarray, np.ndarray]:
+    mean = states.mean(0)
+    std = states.std(0) + eps
+    return mean, std
+
+
+def normalize_states(states: np.ndarray, mean: np.ndarray, std: np.ndarray):
+    return (states - mean) / std

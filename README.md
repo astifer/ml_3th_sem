@@ -10,6 +10,7 @@ docker run --gpus=all -it --rm --name <container_name> <image_name>
 
 ## Implementations
 | Algorithm                                                                                                                      | Variants Implemented                           |
+|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
 | ✅ [Uncertainty-Based Offline Reinforcement Learning with Diversified Q-Ensemble <br>(EDAC)](https://arxiv.org/abs/2110.01548) | [`offline/edac.py`](algorithms/edac.py)        |
 
 
